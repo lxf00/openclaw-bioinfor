@@ -1,0 +1,28 @@
+{
+  "mcpServers": {
+    "data-agent": {
+      "command": "python",
+      "args": ["-m", "bioopenclaw.mcp_servers.data_agent.server"],
+      "cwd": ".",
+      "env": {
+        "DATA_AGENT_ENTREZ_EMAIL": "",
+        "DATA_AGENT_NCBI_API_KEY": "",
+        "DATA_AGENT_DATA_DIR": "./data",
+        "DATA_AGENT_RAW_DATA_DIR": "./data/raw",
+        "DATA_AGENT_PROCESSED_DATA_DIR": "./data/processed",
+        "DATA_AGENT_REPORTS_DIR": "./data/reports",
+        "DATA_AGENT_LINEAGE_DIR": "./data/lineage"
+      }
+    },
+    "bioinformatics-tools": {
+      "command": "python",
+      "args": ["mcp_server/server.py"],
+      "cwd": ".",
+      "env": {
+        "ENTREZ_EMAIL": "",
+        "NCBI_API_KEY": ""
+      },
+      "_comment": "Legacy shared MCP server (backward compatible)"
+    }
+  }
+}

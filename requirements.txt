@@ -1,0 +1,35 @@
+# BioOpenClaw Data Agent - Phase 1 Dependencies
+# Install: pip install -r requirements.txt
+
+# Core
+mcp>=1.0.0
+pydantic>=2.0
+pydantic-settings>=2.0
+
+# Bioinformatics
+scanpy>=1.10
+anndata>=0.10
+GEOparse>=2.0
+scrublet>=0.2
+
+# Batch Correction (Batch 2, install when needed)
+# harmonypy>=0.0.9
+# scvi-tools>=1.1
+
+# TCGA/GDC
+requests>=2.31
+
+# CellxGene Census (Batch 2, install when needed)
+# cellxgene-census>=2.0
+# tiledbsoma>=1.5
+
+# Bio
+biopython>=1.83
+
+# HuggingFace (for other agents)
+huggingface-hub>=0.20
+
+# Testing
+pytest>=8.0
+pytest-asyncio>=0.23
+pytest-mock>=3.12

@@ -1,0 +1,124 @@
+# BioOpenClaw .gitignore
+
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# PyTest
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ===== Data Files (大文件不纳入版本控制) =====
+*.h5ad
+*.h5
+*.loom
+*.zarr/
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+*.bam
+*.bam.bai
+*.vcf
+*.vcf.gz
+*.bed
+*.bedgraph
+*.bigwig
+*.bw
+data/raw/
+data/processed/
+data/cache/
+
+# ===== Model Files =====
+*.pt
+*.pth
+*.safetensors
+*.onnx
+*.bin
+models/
+
+# ===== Jupyter =====
+.ipynb_checkpoints/
+*.ipynb
+
+# ===== IDE =====
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== Logs =====
+*.log
+logs/
+
+# ===== Secrets / API Keys (NEVER commit) =====
+.env.local
+.env.*.local
+secrets.yaml
+secrets.json
+*_api_key*
+*_token*
+
+# ===== Temporary files =====
+tmp/
+temp/
+*.tmp
+*.bak
+~$*
+
+# ===== MCP Server =====
+mcp_server/__pycache__/
+mcp_server/.env
+
+# ===== Node.js (OpenClaw) =====
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# ===== BioOpenClaw 特定排除项 =====
+# inbox 中的消息文件在处理后不需要版本追踪（已路由到 active_context）
+# 但 _index.md 需要追踪，所以只排除具体消息文件
+# shared_memory/inbox/*.md  ← 暂时追踪所有 inbox 消息，方便审计
+
+# 归档日志（超过14天的归档，不需要长期追踪）
+agents/*/daily_log/archive/
+agents/watcher/corrections_log/archive/

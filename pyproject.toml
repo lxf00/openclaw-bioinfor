@@ -1,0 +1,72 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bioopenclaw"
+version = "0.1.0"
+description = "BioOpenClaw - Multi-AI Bioinformatics Scientist Framework"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+
+dependencies = [
+    "mcp>=1.0.0",
+    "pydantic>=2.0",
+    "pydantic-settings>=2.0",
+    "scanpy>=1.10",
+    "anndata>=0.10",
+    "GEOparse>=2.0",
+    "requests>=2.31",
+    "biopython>=1.83",
+]
+
+[project.optional-dependencies]
+batch-correction = [
+    "harmonypy>=0.0.9",
+    "scvi-tools>=1.1",
+    "scrublet>=0.2",
+]
+cellxgene = [
+    "cellxgene-census>=2.0",
+    "tiledbsoma>=1.5",
+]
+multiomics = [
+    "muon>=0.1.5",
+]
+bioservices = [
+    "bioservices>=1.11",
+]
+huggingface = [
+    "huggingface-hub>=0.20",
+]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "pytest-mock>=3.12",
+    "black",
+    "ruff",
+]
+all = [
+    "bioopenclaw[batch-correction,cellxgene,multiomics,bioservices,huggingface,dev]",
+]
+
+[project.scripts]
+data-agent-server = "bioopenclaw.mcp_servers.data_agent.server:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+markers = [
+    "online: marks tests that require network access",
+]
+
+[tool.black]
+line-length = 100
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
