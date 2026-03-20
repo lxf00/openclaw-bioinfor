@@ -25,14 +25,6 @@ share/python-wheels/
 *.egg
 MANIFEST
 
-# Virtual environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
 
 # PyTest
 .pytest_cache/
