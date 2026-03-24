@@ -1,0 +1,34 @@
+{
+  "_comment": "Remote harness default tool routing. Adjust per workload before production runs.",
+  "scout_agent": {
+    "tool_name": "scan_arxiv_papers",
+    "tool_args": {
+      "query": "single-cell foundation model",
+      "max_results": 10
+    }
+  },
+  "research_agent": {
+    "tool_name": "generate_hypothesis",
+    "tool_args": {
+      "background": "Summarize recent literature and draft an actionable hypothesis.",
+      "observation": "Use discovered literature and datasets to generate a first-pass scientific hypothesis."
+    }
+  },
+  "data_agent": {
+    "tool_name": "search_datasets",
+    "tool_args": {
+      "keywords": [
+        "single-cell",
+        "foundation model"
+      ],
+      "organism": "Homo sapiens",
+      "max_results": 10
+    }
+  },
+  "model_agent": {
+    "tool_name": "create_lora_config",
+    "tool_args": {
+      "base_model": "scGPT"
+    }
+  }
+}

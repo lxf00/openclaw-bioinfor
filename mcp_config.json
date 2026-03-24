@@ -1,26 +1,74 @@
 {
+  "_usage": "Replace __VENV_PY__, __REPO_ROOT__, __DATA_ROOT__ with remote server absolute paths before deployment.",
   "mcpServers": {
     "data-agent": {
-      "command": "python",
+      "command": "__VENV_PY__",
       "args": ["-m", "bioopenclaw.mcp_servers.data_agent.server"],
-      "cwd": ".",
+      "cwd": "__REPO_ROOT__",
       "env": {
         "DATA_AGENT_ENTREZ_EMAIL": "",
         "DATA_AGENT_NCBI_API_KEY": "",
-        "DATA_AGENT_DATA_DIR": "./data",
-        "DATA_AGENT_RAW_DATA_DIR": "./data/raw",
-        "DATA_AGENT_PROCESSED_DATA_DIR": "./data/processed",
-        "DATA_AGENT_REPORTS_DIR": "./data/reports",
-        "DATA_AGENT_LINEAGE_DIR": "./data/lineage"
+        "DATA_AGENT_DATA_DIR": "__DATA_ROOT__/data",
+        "DATA_AGENT_RAW_DATA_DIR": "__DATA_ROOT__/data/raw",
+        "DATA_AGENT_PROCESSED_DATA_DIR": "__DATA_ROOT__/data/processed",
+        "DATA_AGENT_REPORTS_DIR": "__DATA_ROOT__/data/reports",
+        "DATA_AGENT_LINEAGE_DIR": "__DATA_ROOT__/data/lineage"
+      }
+    },
+    "scout-agent": {
+      "command": "__VENV_PY__",
+      "args": ["-m", "bioopenclaw.mcp_servers.scout_agent.server"],
+      "cwd": "__REPO_ROOT__",
+      "env": {
+        "SCOUT_AGENT_HF_TOKEN": "",
+        "SCOUT_AGENT_REGISTRY_DIR": "__DATA_ROOT__/shared_memory/model_registry",
+        "SCOUT_AGENT_INBOX_DIR": "__DATA_ROOT__/shared_memory/inbox"
+      }
+    },
+    "research-agent": {
+      "command": "__VENV_PY__",
+      "args": ["-m", "bioopenclaw.mcp_servers.research_agent.server"],
+      "cwd": "__REPO_ROOT__",
+      "env": {
+        "RESEARCH_AGENT_ENTREZ_EMAIL": "",
+        "RESEARCH_AGENT_NCBI_API_KEY": "",
+        "RESEARCH_AGENT_LITERATURE_DIR": "__DATA_ROOT__/shared_memory/literature",
+        "RESEARCH_AGENT_EXPERIMENTS_DIR": "__DATA_ROOT__/shared_memory/experiments",
+        "RESEARCH_AGENT_INBOX_DIR": "__DATA_ROOT__/shared_memory/inbox"
+      }
+    },
+    "model-agent": {
+      "command": "__VENV_PY__",
+      "args": ["-m", "bioopenclaw.mcp_servers.model_agent.server"],
+      "cwd": "__REPO_ROOT__",
+      "env": {
+        "MODEL_AGENT_HF_TOKEN": "",
+        "MODEL_AGENT_MODELS_DIR": "__DATA_ROOT__/models",
+        "MODEL_AGENT_CHECKPOINTS_DIR": "__DATA_ROOT__/models/checkpoints",
+        "MODEL_AGENT_CONFIGS_DIR": "__DATA_ROOT__/models/configs",
+        "MODEL_AGENT_EXPERIMENTS_DIR": "__DATA_ROOT__/shared_memory/experiments",
+        "MODEL_AGENT_REGISTRY_DIR": "__DATA_ROOT__/shared_memory/model_registry",
+        "MODEL_AGENT_INBOX_DIR": "__DATA_ROOT__/shared_memory/inbox"
+      }
+    },
+    "watcher": {
+      "command": "__VENV_PY__",
+      "args": ["-m", "bioopenclaw.watcher.server"],
+      "cwd": "__REPO_ROOT__",
+      "env": {
+        "WATCHER_AGENTS_DIR": "__DATA_ROOT__/agents",
+        "WATCHER_INBOX_DIR": "__DATA_ROOT__/shared_memory/inbox",
+        "WATCHER_CORRECTIONS_LOG_DIR": "__DATA_ROOT__/agents/watcher/corrections_log"
       }
     },
     "bioinformatics-tools": {
-      "command": "python",
+      "command": "__VENV_PY__",
       "args": ["mcp_server/server.py"],
-      "cwd": ".",
+      "cwd": "__REPO_ROOT__",
       "env": {
         "ENTREZ_EMAIL": "",
-        "NCBI_API_KEY": ""
+        "NCBI_API_KEY": "",
+        "HF_TOKEN": ""
       },
       "_comment": "Legacy shared MCP server (backward compatible)"
     }

@@ -53,6 +53,7 @@ all = [
 
 [project.scripts]
 data-agent-server = "bioopenclaw.mcp_servers.data_agent.server:main"
+bioopenclaw-harness = "bioopenclaw.harness.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

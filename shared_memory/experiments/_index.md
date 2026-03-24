@@ -2,7 +2,7 @@
 
 > **写入权限**: 全员（Data Agent / Model Agent / Research Agent）
 > **加载时机**: Layer 3（按需加载）
-> **最后更新**: 2026-03-15
+> **最后更新**: 2026-03-21
 
 ---
 
@@ -10,7 +10,11 @@
 
 | 日期 | 实验名称 | 类型 | 负责 Agent | 状态 | 详情 |
 |------|---------|------|-----------|------|------|
-| （待建立） | — | — | — | — | — |
+| 2026-03-19 | test_qc_pipeline | data_processing | data_agent | completed | `2026-03-19_test_qc_pipeline.md` |
+| 2026-03-19 | test_multi_step | data_processing | data_agent | completed | `2026-03-19_test_multi_step.md` |
+| 2026-03-19 | lineage_pipe | data_processing | data_agent | completed | `2026-03-19_lineage_pipe.md` |
+| 2026-03-19 | experiment_record_test | data_processing | data_agent | completed | `2026-03-19_experiment_record_test.md` |
+| 2026-03-19 | fail_test | data_processing | data_agent | failed | `2026-03-19_fail_test.md` |
 
 ---
 
